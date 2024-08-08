@@ -1,0 +1,21 @@
+/* src/components/Logout.css */
+
+.logout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: lightSkyBlue;
+    text-align: center;
+  }
+  
+  .logout h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .logout p {
+    font-size: 1.2rem;
+  }
+  

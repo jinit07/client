@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { web3, contract } from '../utils/web3';
+import './ApprovePaper.css';
 
 const ApprovePaper = () => {
   const [paperHash, setPaperHash] = useState('');
@@ -24,34 +25,11 @@ const ApprovePaper = () => {
   };
 
   return (
-    <form style={styles.form} onSubmit={handleSubmit}>
-      <input type="text" name="paperHash" placeholder="Paper Hash" onChange={handleChange} required />
-      <button type="submit">Approve Paper</button>
+    <form className="form" onSubmit={handleSubmit}>
+      <input type="text" name="paperHash" placeholder="Paper Hash" onChange={handleChange} required className="input" />
+      <button type="submit" className="button">Approve Paper</button>
     </form>
   );
-};
-
-const styles = {
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '300px',
-    margin: 'auto',
-    marginTop: '50px'
-  },
-  input: {
-    marginBottom: '10px',
-    padding: '8px',
-    fontSize: '16px'
-  },
-  button: {
-    padding: '10px',
-    background: '#4caf50',
-    color: 'white',
-    border: 'none',
-    cursor: 'pointer',
-    fontSize: '16px'
-  }
 };
 
 export default ApprovePaper;

@@ -1,12 +1,11 @@
-// src/components/UploadPaper.js
+// src/components/SampleTests.js
 
 import React, { useState } from 'react';
 import { web3, contract } from '../utils/web3';
-import './UploadPaper.css';
+import './SampleTests.css';
 
-const UploadPaper = () => {
+const SampleTests = () => {
   const [questions, setQuestions] = useState([{ question: '', options: ['', '', '', ''] }]);
-  const [paperHash, setPaperHash] = useState('');
 
   const handleChange = (index, e) => {
     const newQuestions = [...questions];
@@ -29,12 +28,10 @@ const UploadPaper = () => {
     const accounts = await web3.eth.requestAccounts();
     const account = accounts[0];
 
-    // Here you would normally hash the paper content, for simplicity we use a static hash
-    setPaperHash(web3.utils.keccak256(JSON.stringify(questions)));
-
     try {
-      await contract.methods.uploadPaper(paperHash).send({ from: account });
-      alert('Paper uploaded successfully');
+      // Assume `uploadSampleTest` is a method in your smart contract
+      await contract.methods.uploadSampleTest(JSON.stringify(questions)).send({ from: account });
+      alert('Sample test uploaded successfully');
     } catch (error) {
       console.error(error);
     }
@@ -68,9 +65,9 @@ const UploadPaper = () => {
           <button type="button" onClick={addQuestion} className="button">Add Question</button>
         </div>
       ))}
-      <button type="submit" className="button">Submit Paper</button>
+      <button type="submit" className="button">Submit Sample Test</button>
     </form>
   );
 };
 
-export default UploadPaper;
+export default SampleTests;

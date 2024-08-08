@@ -1,0 +1,21 @@
+/* src/components/StudentDashboard.css */
+
+.dashboardContainer {
+    display: flex;
+  }
+  
+  .content {
+    margin-left: 220px;
+    padding: 20px;
+    background: lightSkyBlue;
+    width: calc(100% - 220px);
+  }
+  
+  .section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  

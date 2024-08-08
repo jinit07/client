@@ -2,49 +2,38 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaBook, FaPen, FaGraduationCap, FaSignOutAlt, FaChalkboardTeacher } from 'react-icons/fa';
+import './Sidebar.css';
 
 const Sidebar = ({ role }) => {
   return (
-    <div style={styles.sidebar}>
-      <Link to="/dashboard" style={styles.link}>Dashboard</Link>
+    <div className="sidebar">
+      {/* <div className="logo">
+        <img src="/path/to/logo.png" alt="Logo" />
+      </div> */}
+      <Link to="/dashboard" className="link"><FaBook /> Dashboard</Link>
       {role === 'student' && (
         <>
-          <Link to="/attempt-paper" style={styles.link}>Attempt Paper</Link>
-          <Link to="/take-tests" style={styles.link}>Take Tests</Link>
-          <Link to="/learning-resources" style={styles.link}>Learning Resources</Link>
+          <Link to="/attempt-paper" className="link"><FaPen /> Attempt Paper</Link>
+          <Link to="/take-tests" className="link"><FaGraduationCap /> Take Tests</Link>
+          <Link to="/learning-resources" className="link"><FaBook /> Learning Resources</Link>
         </>
       )}
       {role === 'professor' && (
         <>
-          <Link to="/add-paper" style={styles.link}>Add Paper</Link>
-          <Link to="/sample-tests" style={styles.link}>Sample Tests</Link>
-          <Link to="/add-learning-resources" style={styles.link}>Add Learning Resources</Link>
+          <Link to="/add-paper" className="link"><FaPen /> Add Paper</Link>
+          <Link to="/sample-tests" className="link"><FaGraduationCap /> Sample Tests</Link>
+          <Link to="/add-learning-resources" className="link"><FaBook /> Add Learning Resources</Link>
         </>
       )}
       {role === 'admin' && (
         <>
-          <Link to="/approve-papers" style={styles.link}>Approve Papers</Link>
+          <Link to="/approve-papers" className="link"><FaChalkboardTeacher /> Approve Papers</Link>
         </>
       )}
-      <Link to="/logout" style={styles.link}>Logout</Link>
+      <Link to="/logout" className="link"><FaSignOutAlt /> Logout</Link>
     </div>
   );
-};
-
-const styles = {
-  sidebar: {
-    width: '200px',
-    position: 'fixed',
-    height: '100%',
-    background: '#f0f0f0',
-    paddingTop: '20px'
-  },
-  link: {
-    display: 'block',
-    color: '#000',
-    padding: '10px',
-    textDecoration: 'none'
-  }
 };
 
 export default Sidebar;
